@@ -8,3 +8,22 @@ A self-organizing map (SOM) or self-organizing feature map (SOFM) is a type of a
 4. Compute the feature vector for each document, using TF-IDF weighting scheme.
 
 # Phase 2: SOM Clustering
+a) Winner-takes-all approach
+
+for this part first randomly initialize weight vector which is size =
+(num_neurons, num_data). then set the learning parameters.
+in each epoch all datas are chosen to train the model. but the order of
+choosing data is random. for each data we find distance between data
+and output neurons. and find closest to data as k. then update winner
+neuron(k) based on its distance to data. the learning iterations goes till
+max_epoch reached or when largest change(max norm change in w in previous
+epoch) is less than a threshold. for prediction we find distance of each
+sample to each neuron and set label of closest to data.
+
+
+b) On-center, off-surround approach
+
+this part is much like the previous one, the difference is in output neurons.
+for example if we have 3*3 output neurons, in every iteration furthermore
+winner’s weights, also neighbour’s weights will update base on
+their distance to winner.
